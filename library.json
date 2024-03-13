@@ -1,8 +1,8 @@
 {
-"name": "gb_SENSORNAME",
+"name": "gb_SEN0546_TemperatureHumiditySensor",
 "frameworks": "Arduino",
 "keywords": "keywords",
-"description": "Use the sensor XXXXX in the GrowBot system.",
+"description": "Use the sensor SEN0546_TemperatureHumiditySensor in the GrowBot system.",
 "authors":
 [
     {
