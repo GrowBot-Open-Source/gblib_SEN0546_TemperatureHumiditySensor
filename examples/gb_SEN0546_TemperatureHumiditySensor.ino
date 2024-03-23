@@ -12,7 +12,8 @@ void loop()
 {
     float temp = tempHumidity.getHumidity();
     float hum = tempHumidity.getTemperature();
-    float vpd = tempHumidity.calculateVPD(temp, hum);
+    // float vpd = tempHumidity.getVPD(temp, hum);
+    float vpd = tempHumidity.getVPD();
 
     Serial.print(tempHumidity.getHumidity());
     Serial.print("\t");
