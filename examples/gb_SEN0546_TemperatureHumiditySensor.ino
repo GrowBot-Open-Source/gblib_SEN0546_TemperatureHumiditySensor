@@ -10,13 +10,14 @@ void setup()
 
 void loop()
 {
-    hum = tempHumidity.getHumidity;
-    temp = tempHumidity.getTemperature;
-    vpd = tempHumidity.calculateVPD(temp, hum);
+    float temp = tempHumidity.getHumidity();
+    float hum = tempHumidity.getTemperature();
+    float vpd = tempHumidity.calculateVPD(temp, hum);
 
-    Serial.print(temp);
+    Serial.print(tempHumidity.getHumidity());
     Serial.print("\t");
-    Serial.print(hum);
+    Serial.print(tempHumidity.getTemperature());
     Serial.print("\t");
     Serial.println(vpd);
+    delay(1000);
 };

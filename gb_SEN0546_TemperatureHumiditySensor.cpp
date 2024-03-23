@@ -69,8 +69,8 @@ uint8_t gb_SEN0546_TemperatureHumiditySensor::readTemperatureHumiditySensor(uint
 // get rel humidity
 float gb_SEN0546_TemperatureHumiditySensor::getHumidity()
 {
-    readTemperatureHumiditySensor(0x00, _buf, 4);
-    data1 = _buf[2] << 8 | _buf[3];
+    readTemperatureHumiditySensor(0x00, buf, 4);
+    data1 = buf[2] << 8 | buf[3];
     humidity = ((float)data1 / 65535.0) * 100;
     return humidity;
     delay(500);
@@ -83,7 +83,6 @@ float gb_SEN0546_TemperatureHumiditySensor::getTemperature()
     data = buf[0] << 8 | buf[1];
     temperature = ((float)data * 165 / 65535.0) - 40.0;
     return temperature;
-    delay(500);
 }
 
 // calculate saturated vapor pressure
