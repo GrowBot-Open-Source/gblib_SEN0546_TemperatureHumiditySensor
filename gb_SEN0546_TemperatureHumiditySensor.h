@@ -51,7 +51,10 @@ public:
     float calculateSaturatedVaporPressure(float temperature);
 
     // get VPD
-    float calculateVPD(float temperature, float humidity);
+    float getVPD(float temperature, float humidity);
+
+    // get VPD
+    float getVPD();
 };
 
 #endif

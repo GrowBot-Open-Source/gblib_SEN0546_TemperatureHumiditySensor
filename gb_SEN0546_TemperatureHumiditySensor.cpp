@@ -95,9 +95,21 @@ float gb_SEN0546_TemperatureHumiditySensor::calculateSaturatedVaporPressure(floa
 }
 
 // get vpd
-float gb_SEN0546_TemperatureHumiditySensor::calculateVPD(float temperature, float humidity)
+float gb_SEN0546_TemperatureHumiditySensor::getVPD(float temperature, float humidity)
 {
     float saturatedVaporPressure = calculateSaturatedVaporPressure(temperature);
     float vpd = saturatedVaporPressure - (humidity / 100.0 * saturatedVaporPressure);
+    return vpd;
+}
+
+float gb_SEN0546_TemperatureHumiditySensor::getVPD()
+{
+    readTemperatureHumiditySensor(0x00, buf, 4);
+    data = buf[0] << 8 | buf[1];
+    data1 = buf[2] << 8 | buf[3];
+    temperature = (((float)data * 165 / 65535.0) - 40.0);
+    humidity = (((float)data1 / 65535.0) * 100);
+    float saturatedVaporPressure = calculateSaturatedVaporPressure((((float)data * 165 / 65535.0) - 40.0));
+    float vpd = saturatedVaporPressure - ((((float)data1 / 65535.0) * 100) / 100.0 * saturatedVaporPressure);
     return vpd;
 }
