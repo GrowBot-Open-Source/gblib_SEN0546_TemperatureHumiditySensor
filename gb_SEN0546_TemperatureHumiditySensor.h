@@ -12,7 +12,7 @@
  *
  * Product Links：
  *
- * Sensor driver pin：
+ * Sensor driver pin：0x40
  *
  * author  :  GrowBot
  * version :  V1.0
